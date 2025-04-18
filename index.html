@@ -6,7 +6,6 @@
   <title>El Pana Gabo</title>
   <link rel="icon" href="GaboRumbos.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet" />
-
   <style>
     body {
       margin: 0;
@@ -21,7 +20,6 @@
       overflow: hidden;
     }
 
-    /* Fondo de video en escritorio */
     #bg-video {
       position: fixed;
       top: 0;
@@ -33,27 +31,23 @@
       opacity: 0.5;
     }
 
-    /* Fondo animado en móviles */
     @media (max-width: 768px) {
       #bg-video {
         display: none;
       }
-
       body {
-        animation: backgroundLoop 12s linear infinite;
-      }
-
-      @keyframes backgroundLoop {
-        0% { background-color: #f0f4ff; }
-        20% { background-color: #dbe8ff; }
-        40% { background-color: #b2d0f5; }
-        60% { background-color: #e0e0e0; }
-        80% { background-color: #ffffff; }
-        100% { background-color: #f0f4ff; }
+        animation: backgroundLoop 20s infinite;
       }
     }
 
-    /* Logo animado */
+    @keyframes backgroundLoop {
+      0%   { background-color: #ffffff; }
+      25%  { background-color: #ccddee; }
+      50%  { background-color: #99bbdd; }
+      75%  { background-color: #ccddff; }
+      100% { background-color: #ffffff; }
+    }
+
     .intro-logo {
       position: absolute;
       width: 200px;
@@ -138,77 +132,58 @@
       100% { transform: translateY(0) scale(1); opacity: 1; }
     }
 
-    /* Iconos sociales verticales */
     .social-icons {
       position: absolute;
-      top: 80px;
-      left: 40px;
+      top: 30%;
+      left: 2%;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 1rem;
       opacity: 0;
-      animation: popIn 0.6s ease forwards;
+      animation: fadeInText 0.6s ease forwards;
       animation-delay: 1.5s;
     }
 
-    .social-icons a {
-      display: inline-block;
+    .social-icon {
+      width: 40px;
+      height: 40px;
     }
 
-    .social-icons img {
-      width: 48px;
-      aspect-ratio: 1;
-      border: 2px solid white;
-      border-radius: 50%;
-      background-color: #000;
-      padding: 4px;
-      image-rendering: pixelated;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
-
-    @media (max-width: 768px) {
-      .social-icons {
-        display: none;
-      }
-
-      #mainLogo {
-        width: 240px;
-      }
-
+    @media (max-width: 600px) {
       .img-btn {
         width: 120px;
       }
-
       .buttons-row {
         gap: 1rem;
       }
+      .social-icons {
+        display: none;
+      }
+      .credits {
+        display: none;
+      }
+    }
+
+    .credits {
+      position: absolute;
+      bottom: 5px;
+      font-size: 0.85rem;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .credits.show {
+      opacity: 0.7;
     }
   </style>
 </head>
-
 <body>
   <video autoplay muted loop playsinline id="bg-video">
     <source src="fondogabo.mp4" type="video/mp4" />
   </video>
 
-  <img src="logo-transformacion.png" alt="Intro Logo" class="intro-logo" id="introLogo" />
-
-  <div class="social-icons">
-    <a href="https://www.instagram.com/elgaborumbos" target="_blank">
-      <img src="icon-instagram.png" alt="Instagram" />
-    </a>
-    <a href="https://www.tiktok.com/@gaborumbos" target="_blank">
-      <img src="icon-tiktok.png" alt="TikTok" />
-    </a>
-    <a href="https://www.facebook.com/GaboElGamer" target="_blank">
-      <img src="icon-facebook.png" alt="Facebook" />
-    </a>
-  </div>
+  <img src="logo-transformacion.png" alt="GaboRumbos.com" class="intro-logo" id="introLogo" />
 
   <div class="button-container" id="buttons">
     <img id="mainLogo" src="GaboLogo.png" alt="GaboRumbos.com" />
@@ -228,13 +203,33 @@
     </div>
   </div>
 
+  <div class="social-icons" id="socialIcons">
+    <a href="https://www.instagram.com/gabo_rumbos" target="_blank">
+      <img src="icon-instagram.png" alt="Instagram" class="social-icon" />
+    </a>
+    <a href="https://www.tiktok.com/@gaborumbos" target="_blank">
+      <img src="icon-tiktok.png" alt="TikTok" class="social-icon" />
+    </a>
+    <a href="https://www.facebook.com/GaboElGamer" target="_blank">
+      <img src="icon-facebook.png" alt="Facebook" class="social-icon" />
+    </a>
+  </div>
+
+  <footer class="credits" id="footerCredits">
+    Hecho por <a href="https://www.instagram.com/gabo_rumbos" target="_blank">@gaborumbos</a>
+  </footer>
+
   <script>
-    window.addEventListener("load", () => {
-      const logo = document.getElementById("introLogo");
+    window.addEventListener('load', () => {
+      const logo = document.getElementById('introLogo');
       setTimeout(() => {
-        logo.style.display = "none";
-        document.getElementById("buttons").classList.add("show");
+        logo.style.display = 'none';
+        document.getElementById('buttons').classList.add('show');
       }, 1200);
+
+      setTimeout(() => {
+        document.getElementById('footerCredits').classList.add('show');
+      }, 2000);
     });
   </script>
 </body>
