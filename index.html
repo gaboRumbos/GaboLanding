@@ -264,24 +264,25 @@
   </div>
 
   <script>
-    window.addEventListener('load', () => {
-      const logo = document.getElementById('introLogo');
-      setTimeout(() => {
-        logo.style.display = 'none';
-        document.getElementById('buttons').classList.add('show');
-      }, 1200);
+  window.addEventListener('load', () => {
+    const logo = document.getElementById('introLogo');
+    setTimeout(() => {
+      logo.style.display = 'none';
+      document.getElementById('buttons').classList.add('show');
+    }, 1200);
 
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCwEW4tWW9g-xv0i7XLhN_cQ&eventType=live&type=video&key=AIzaSyCvJDzCqjjdNLiaj05cOoxCvj6f4qUvfCk`)
-        .then(response => response.json())
-        .then(data => {
-          if (data.items && data.items.length > 0) {
-            document.getElementById('liveBadge').style.display = 'block';
-          }
-        })
-        .catch(error => console.error('Error verificando transmisión en vivo:', error));
+    // Nuevo fetch seguro
+    fetch("/api/check-live")
+      .then(response => response.json())
+      .then(data => {
+        if (data.items && data.items.length > 0) {
+          document.getElementById('liveBadge').style.display = 'block';
+        }
+      })
+      .catch(error => console.error('Error verificando transmisión en vivo:', error));
 
-      document.getElementById('credits').classList.add('show');
-    });
-  </script>
+    document.getElementById('credits').classList.add('show');
+  });
+</script>
 </body>
 </html>
