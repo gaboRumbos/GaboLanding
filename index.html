@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El Pana Gabo</title>
-  <link rel="icon" href="GaboRumbos.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="GaboRumbos.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+
+  <!-- Meta Etiquetas SEO y Social -->
+  <meta name="description" content="Opiniones, reflexiones y contenido auténtico de El Pana Gabo. Visitá mi blog y canal de YouTube.">
+  <meta name="keywords" content="Gabo Rumbos, blog, reflexiones, El Pana Gabo, YouTube, opiniones, contenido personal">
+  <meta name="author" content="Gabo Rumbos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Pana Gabo | GaboRumbos.com">
+  <meta property="og:description" content="Opiniones, reflexiones y contenido auténtico. Descubrí el blog y canal de Gabo.">
+  <meta property="og:image" content="https://www.gaborumbos.com/logo-final.png">
+  <meta property="og:url" content="https://www.gaborumbos.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="El Pana Gabo | GaboRumbos.com">
+  <meta name="twitter:description" content="Opiniones, reflexiones y contenido auténtico. Visitá el blog y canal de Gabo.">
+  <meta name="twitter:image" content="https://www.gaborumbos.com/logo-final.png">
+
   <style>
     body {
       margin: 0;
@@ -31,23 +50,6 @@
       opacity: 0.5;
     }
 
-    @media (max-width: 768px) {
-      #bg-video {
-        display: none;
-      }
-      body {
-        animation: backgroundLoop 20s infinite;
-      }
-    }
-
-    @keyframes backgroundLoop {
-      0%   { background-color: #ffffff; }
-      25%  { background-color: #ccddee; }
-      50%  { background-color: #99bbdd; }
-      75%  { background-color: #ccddff; }
-      100% { background-color: #ffffff; }
-    }
-
     .intro-logo {
       position: absolute;
       width: 200px;
@@ -56,9 +58,18 @@
     }
 
     @keyframes zoomFade {
-      0% { opacity: 1; transform: scale(1); }
-      80% { opacity: 0.5; transform: scale(1.2) rotate(10deg); }
-      100% { opacity: 0; transform: scale(0) rotate(720deg); }
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      80% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(10deg);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0) rotate(720deg);
+      }
     }
 
     .button-container {
@@ -75,7 +86,7 @@
     }
 
     #mainLogo {
-      width: 320px;
+      width: 200px;
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeInText 0.8s ease forwards;
@@ -124,105 +135,51 @@
     }
 
     @keyframes fadeInText {
-      to { opacity: 1; }
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes popIn {
-      0% { transform: translateY(-20px) scale(0); opacity: 0; }
-      100% { transform: translateY(0) scale(1); opacity: 1; }
-    }
-
-    .social-icons {
-      position: absolute;
-      top: 30%;
-      left: 2%;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      opacity: 0;
-      animation: fadeInText 0.6s ease forwards;
-      animation-delay: 1.5s;
-    }
-
-    .social-icon {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s ease;
-    }
-
-    .social-icon:hover {
-      transform: scale(1.2) rotate(-5deg);
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     @media (max-width: 600px) {
       .img-btn {
         width: 120px;
       }
+
       .buttons-row {
         gap: 1rem;
       }
-      .social-icons {
-        display: none;
-      }
-      .credits {
-        display: none;
-      }
-    }
-
-    .credits {
-      position: absolute;
-      bottom: 5px;
-      font-size: 0.85rem;
-      color: #fff;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .credits.show {
-      opacity: 0.7;
     }
   </style>
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
-    <source src="fondogabo.mp4" type="video/mp4" />
+    <source src="fondo.mp4" type="video/mp4">
   </video>
 
-  <img src="logo-transformacion.png" alt="GaboRumbos.com" class="intro-logo" id="introLogo" />
+  <img src="logo-transformacion.png" alt="GaboRumbos.com" class="intro-logo" id="introLogo">
 
   <div class="button-container" id="buttons">
-    <img id="mainLogo" src="GaboLogo.png" alt="GaboRumbos.com" />
+    <img id="mainLogo" src="logo-final.png" alt="GaboRumbos.com">
     <div class="buttons-row">
       <div>
         <a href="https://gaborumbos.wordpress.com/" target="_blank">
-          <img src="Blog.png" alt="Ir al Blog" class="img-btn" />
+          <img src="Blog.png" alt="Ir al Blog" class="img-btn">
         </a>
         <div class="btn-label">Mi blog</div>
       </div>
       <div>
-        <a href="https://www.youtube.com/@ElGaboRumbos" target="_blank">
-          <img src="Youtube.png" alt="Ver Canal" class="img-btn" />
+        <a href="https://youtube.com/@ElGaboRumbos" target="_blank">
+          <img src="Youtube.png" alt="Ver Canal" class="img-btn">
         </a>
         <div class="btn-label">Youtube</div>
       </div>
     </div>
   </div>
-
-  <div class="social-icons" id="socialIcons">
-    <a href="https://www.instagram.com/gabo_rumbos" target="_blank">
-      <img src="icon-instagram.png" alt="Instagram" class="social-icon" />
-    </a>
-    <a href="https://www.tiktok.com/@gaborumbos" target="_blank">
-      <img src="icon-tiktok.png" alt="TikTok" class="social-icon" />
-    </a>
-    <a href="https://www.facebook.com/GaboElGamer" target="_blank">
-      <img src="icon-facebook.png" alt="Facebook" class="social-icon" />
-    </a>
-  </div>
-
-  <footer class="credits" id="footerCredits">
-    Hecho por <a href="https://www.instagram.com/gabo_rumbos" target="_blank">@gaborumbos</a>
-  </footer>
 
   <script>
     window.addEventListener('load', () => {
@@ -231,10 +188,6 @@
         logo.style.display = 'none';
         document.getElementById('buttons').classList.add('show');
       }, 1200);
-
-      setTimeout(() => {
-        document.getElementById('footerCredits').classList.add('show');
-      }, 2000);
     });
   </script>
 </body>
