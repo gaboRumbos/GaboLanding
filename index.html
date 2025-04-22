@@ -37,26 +37,7 @@
       flex-direction: column;
       text-align: center;
       overflow: hidden;
-    }
-
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.5;
-    }
-
-    @media (max-width: 768px) {
-      #bg-video {
-        display: none;
-      }
-      body {
-        animation: backgroundLoop 20s infinite;
-      }
+      animation: backgroundLoop 20s infinite;
     }
 
     @keyframes backgroundLoop {
@@ -67,38 +48,16 @@
       100% { background-color: #ffffff; }
     }
 
-    .intro-logo {
-      position: absolute;
-      width: 300px; /* Tamaño del logo ajustado */
-      animation: zoomFade 1.2s ease-out forwards;
-      z-index: 10;
-    }
-
-    @keyframes zoomFade {
-      0% { opacity: 1; transform: scale(1); }
-      80% { opacity: 0.5; transform: scale(1.2) rotate(10deg); }
-      100% { opacity: 0; transform: scale(0) rotate(720deg); }
-    }
-
     .button-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
       width: 100%;
     }
 
-    .button-container.show {
-      opacity: 1;
-    }
-
     #mainLogo {
-      width: 400px; /* Tamaño del logo principal ajustado */
+      width: 400px;
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeInText 0.8s ease forwards;
-      animation-delay: 1.2s;
       transition: transform 0.3s ease;
     }
 
@@ -119,10 +78,6 @@
       width: 150px;
       transition: transform 0.4s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-      transform: scale(0);
-      animation: popIn 0.6s ease forwards;
-      animation-delay: 1.2s;
-      position: relative;
     }
 
     .img-btn:hover {
@@ -138,9 +93,6 @@
       text-shadow: 1px 1px 0 white;
       margin-top: 0.5rem;
       text-align: center;
-      opacity: 0;
-      animation: fadeInText 0.8s ease forwards;
-      animation-delay: 1.4s;
     }
 
     .live-badge {
@@ -153,29 +105,16 @@
       padding: 2px 6px;
       border-radius: 6px;
       font-weight: bold;
-      display: none;
-      animation: fadeInText 0.6s ease forwards;
-    }
-
-    @keyframes fadeInText {
-      to { opacity: 1; }
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      display: none; /* Cambiá a "block" si querés mostrarlo */
     }
 
     .social-icons {
-      position: fixed; /* Colocado a la izquierda */
+      position: fixed;
       top: 30%;
       left: 2%;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      opacity: 0;
-      animation: fadeInText 0.6s ease forwards;
-      animation-delay: 1.5s;
     }
 
     .social-icon {
@@ -197,10 +136,7 @@
         gap: 1rem;
       }
 
-      .social-icons {
-        display: none;
-      }
-
+      .social-icons,
       .credits {
         display: none;
       }
@@ -211,23 +147,12 @@
       bottom: 5px;
       font-size: 0.85rem;
       color: #fff;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .credits.show {
       opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="fondogabo.mp4" type="video/mp4" />
-  </video>
-
-  <img src="logo-transformacion.png" alt="GaboRumbos.com" class="intro-logo" id="introLogo" />
-
-  <div class="button-container" id="buttons">
+  <div class="button-container">
     <img id="mainLogo" src="GaboLogo.png" alt="GaboRumbos.com" />
     <div class="buttons-row">
       <div>
@@ -239,50 +164,27 @@
       <div style="position: relative;">
         <a href="https://youtube.com/@ElGaboRumbos" target="_blank">
           <img src="Youtube.png" alt="Ver Canal" class="img-btn" />
-          <div class="live-badge" id="liveBadge">🔴 EN VIVO</div>
+          <div class="live-badge">🔴 EN VIVO</div>
         </a>
         <div class="btn-label">Youtube</div>
       </div>
     </div>
   </div>
 
-  <div class="social-icons" id="socialIcons">
+  <div class="social-icons">
     <a href="https://www.instagram.com/elgaborumbos" target="_blank">
       <img src="icon-instagram.png" alt="Instagram" class="social-icon" />
     </a>
     <a href="https://www.tiktok.com/@gaborumbos" target="_blank">
       <img src="icon-tiktok.png" alt="TikTok" class="social-icon" />
     </a>
-    <!-- Aquí se agrega el tercer ícono de redes sociales, como Facebook o Twitter -->
     <a href="https://facebook.com/gaboelgamer" target="_blank">
       <img src="icon-facebook.png" alt="Facebook" class="social-icon" />
     </a>
   </div>
 
-  <div class="credits" id="credits">
+  <div class="credits">
     <p>Creado por Gabo Rumbos</p>
   </div>
-
-  <script>
-  window.addEventListener('load', () => {
-    const logo = document.getElementById('introLogo');
-    setTimeout(() => {
-      logo.style.display = 'none';
-      document.getElementById('buttons').classList.add('show');
-    }, 1200);
-
-    // Nuevo fetch seguro
-    fetch("/api/check-live")
-      .then(response => response.json())
-      .then(data => {
-        if (data.items && data.items.length > 0) {
-          document.getElementById('liveBadge').style.display = 'block';
-        }
-      })
-      .catch(error => console.error('Error verificando transmisión en vivo:', error));
-
-    document.getElementById('credits').classList.add('show');
-  });
-</script>
 </body>
 </html>
