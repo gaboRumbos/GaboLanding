@@ -48,6 +48,26 @@
       100% { background-color: #ffffff; }
     }
 
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      #bg-video {
+        display: none;
+      }
+      body {
+        animation: backgroundLoop 20s infinite;
+      }
+    }
+
     .button-container {
       display: flex;
       flex-direction: column;
@@ -152,6 +172,10 @@
   </style>
 </head>
 <body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="fondogabo.mp4" type="video/mp4" />
+  </video>
+
   <div class="button-container">
     <img id="mainLogo" src="GaboLogo.png" alt="GaboRumbos.com" />
     <div class="buttons-row">
