@@ -114,6 +114,7 @@
       transform: scale(0);
       animation: popIn 0.6s ease forwards;
       animation-delay: 1.2s;
+      position: relative;
     }
 
     .img-btn:hover {
@@ -132,6 +133,20 @@
       opacity: 0;
       animation: fadeInText 0.8s ease forwards;
       animation-delay: 1.4s;
+    }
+
+    .live-badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: red;
+      color: white;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: bold;
+      display: none;
+      animation: fadeInText 0.6s ease forwards;
     }
 
     @keyframes fadeInText {
@@ -172,9 +187,10 @@
         </a>
         <div class="btn-label">Mi blog</div>
       </div>
-      <div>
+      <div style="position: relative;">
         <a href="https://youtube.com/@ElGaboRumbos" target="_blank">
           <img src="Youtube.png" alt="Ver Canal" class="img-btn">
+          <div class="live-badge" id="liveBadge">🔴 EN VIVO</div>
         </a>
         <div class="btn-label">Youtube</div>
       </div>
@@ -188,6 +204,15 @@
         logo.style.display = 'none';
         document.getElementById('buttons').classList.add('show');
       }, 1200);
+
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCwEW4tWW9g-xv0i7XLhN_cQ&eventType=live&type=video&key=AIzaSyCvJDzCqjjdNLiaj05cOoxCvj6f4qUvfCk`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.items && data.items.length > 0) {
+            document.getElementById('liveBadge').style.display = 'block';
+          }
+        })
+        .catch(error => console.error('Error verificando transmisión en vivo:', error));
     });
   </script>
 </body>
