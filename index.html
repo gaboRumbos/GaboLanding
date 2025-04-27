@@ -66,6 +66,10 @@
       body {
         animation: backgroundLoop 20s infinite;
       }
+      #mainLogo {
+        content: url('gaborumbosmovil.png');
+        width: 250px;
+      }
     }
 
     .button-container {
@@ -98,6 +102,10 @@
       width: 150px;
       transition: transform 0.4s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: fadeInLeftBounce 1s forwards;
+      animation-delay: 0.5s;
     }
 
     .img-btn:hover {
@@ -113,6 +121,9 @@
       text-shadow: 1px 1px 0 white;
       margin-top: 0.5rem;
       text-align: center;
+      opacity: 0;
+      animation: fadeInText 1s forwards;
+      animation-delay: 1.5s;
     }
 
     .live-badge {
@@ -125,7 +136,7 @@
       padding: 2px 6px;
       border-radius: 6px;
       font-weight: bold;
-      display: none; /* Cambiá a "block" si querés mostrarlo */
+      display: none;
     }
 
     .social-icons {
@@ -169,6 +180,18 @@
       color: #fff;
       opacity: 0.7;
     }
+
+    @keyframes fadeInLeftBounce {
+      0% { opacity: 0; transform: translateX(-50px); }
+      60% { opacity: 1; transform: translateX(10px); }
+      80% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -181,16 +204,16 @@
     <div class="buttons-row">
       <div>
         <a href="https://gaborumbos.wordpress.com/" target="_blank">
-          <img src="Blog.png" alt="Ir al Blog" class="img-btn" />
+          <img src="Blog.png" alt="Ir al Blog" class="img-btn" style="animation-delay: 0.5s;" />
         </a>
-        <div class="btn-label">Mi blog</div>
+        <div class="btn-label" style="animation-delay: 1.5s;">Mi blog</div>
       </div>
       <div style="position: relative;">
         <a href="https://youtube.com/@ElGaboRumbos" target="_blank">
-          <img src="Youtube.png" alt="Ver Canal" class="img-btn" />
+          <img src="Youtube.png" alt="Ver Canal" class="img-btn" style="animation-delay: 0.7s;" />
           <div class="live-badge">🔴 EN VIVO</div>
         </a>
-        <div class="btn-label">Youtube</div>
+        <div class="btn-label" style="animation-delay: 1.7s;">Youtube</div>
       </div>
     </div>
   </div>
