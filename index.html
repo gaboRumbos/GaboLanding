@@ -33,16 +33,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;  /* Asegura que el body ocupe el 100% de la altura de la ventana */
+      height: 100vh;
       flex-direction: column;
       text-align: center;
-      overflow: hidden;  /* Evita el scroll */
+      overflow: hidden;
       animation: backgroundLoop 20s infinite;
-    }
-
-    html, body {
-      height: 100%;  /* Asegura que el html y body cubran todo el alto de la ventana */
-      overflow: hidden;  /* Evita el scroll */
     }
 
     @keyframes backgroundLoop {
@@ -70,14 +65,10 @@
       }
       body {
         animation: backgroundLoop 20s infinite;
-        height: 100vh;  /* Garantiza que el body ocupe toda la pantalla en móvil */
       }
       #mainLogo {
         content: url('gaborumbosmovil.png');
-        width: 200px;
-      }
-      .button-container {
-        margin-top: 20px; /* Asegúrate de que haya espacio suficiente en la versión móvil */
+        width: 250px;
       }
     }
 
@@ -202,6 +193,13 @@
     @keyframes fadeInText {
       0% { opacity: 0; }
       100% { opacity: 1; }
+    }
+
+    /* Solución Integrada */
+    .img-btn.visible,
+    .btn-label.visible {
+      opacity: 1 !important;
+      transform: none !important;
     }
   </style>
 </head>
