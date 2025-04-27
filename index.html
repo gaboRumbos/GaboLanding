@@ -41,10 +41,10 @@
     }
 
     @keyframes backgroundLoop {
-      0% { background-color: #ffffff; }
-      25% { background-color: #ccddee; }
-      50% { background-color: #99bbdd; }
-      75% { background-color: #ccddff; }
+      0%   { background-color: #ffffff; }
+      25%  { background-color: #ccddee; }
+      50%  { background-color: #99bbdd; }
+      75%  { background-color: #ccddff; }
       100% { background-color: #ffffff; }
     }
 
@@ -98,7 +98,6 @@
       width: 150px;
       transition: transform 0.4s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-      opacity: 0; /* Para que inicien ocultos */
     }
 
     .img-btn:hover {
@@ -126,7 +125,7 @@
       padding: 2px 6px;
       border-radius: 6px;
       font-weight: bold;
-      display: none;
+      display: none; /* Cambiá a "block" si querés mostrarlo */
     }
 
     .social-icons {
@@ -142,7 +141,6 @@
       width: 40px;
       height: 40px;
       transition: transform 0.3s ease;
-      opacity: 0; /* Para animación */
     }
 
     .social-icon:hover {
@@ -170,49 +168,6 @@
       font-size: 0.85rem;
       color: #fff;
       opacity: 0.7;
-    }
-
-    /* Animaciones */
-    @keyframes fadeInLeftBounce {
-      0% {
-        opacity: 0;
-        transform: translateX(-50px);
-      }
-      60% {
-        opacity: 1;
-        transform: translateX(10px);
-      }
-      80% {
-        transform: translateX(-5px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeInRightBounce {
-      0% {
-        opacity: 0;
-        transform: translateX(50px);
-      }
-      60% {
-        opacity: 1;
-        transform: translateX(-10px);
-      }
-      80% {
-        transform: translateX(5px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    .fade-in-left {
-      animation: fadeInLeftBounce 1s ease forwards;
-    }
-
-    .fade-in-right {
-      animation: fadeInRightBounce 1s ease forwards;
     }
   </style>
 </head>
@@ -255,29 +210,5 @@
   <div class="credits">
     <p>Creado por Gabo Rumbos</p>
   </div>
-
-  <script>
-    window.addEventListener('load', () => {
-      const width = window.innerWidth;
-
-      if (width <= 768) {
-        const buttons = document.querySelectorAll('.buttons-row > div');
-        buttons.forEach((btn, index) => {
-          setTimeout(() => {
-            btn.querySelector('.img-btn').classList.add('fade-in-left');
-          }, index * 250);
-        });
-      }
-
-      if (width > 600 && width <= 1024) {
-        const icons = document.querySelectorAll('.social-icons a .social-icon');
-        icons.forEach((icon, index) => {
-          setTimeout(() => {
-            icon.classList.add('fade-in-right');
-          }, index * 250);
-        });
-      }
-    });
-  </script>
 </body>
 </html>
