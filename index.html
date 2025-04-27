@@ -106,6 +106,7 @@
       transform: translateX(-50px);
       animation: fadeInLeftBounce 1s forwards;
       animation-delay: 0.5s;
+      animation-fill-mode: forwards;
     }
 
     .img-btn:hover {
@@ -124,6 +125,7 @@
       opacity: 0;
       animation: fadeInText 1s forwards;
       animation-delay: 1.5s;
+      animation-fill-mode: forwards;
     }
 
     .live-badge {
@@ -204,16 +206,16 @@
     <div class="buttons-row">
       <div>
         <a href="https://gaborumbos.wordpress.com/" target="_blank">
-          <img src="Blog.png" alt="Ir al Blog" class="img-btn" style="animation-delay: 0.5s;" />
+          <img src="Blog.png" alt="Ir al Blog" class="img-btn" style="animation-delay: 0.5s; animation-fill-mode: forwards;" />
         </a>
-        <div class="btn-label" style="animation-delay: 1.5s;">Mi blog</div>
+        <div class="btn-label" style="animation-delay: 1.5s; animation-fill-mode: forwards;">Mi blog</div>
       </div>
       <div style="position: relative;">
         <a href="https://youtube.com/@ElGaboRumbos" target="_blank">
-          <img src="Youtube.png" alt="Ver Canal" class="img-btn" style="animation-delay: 0.7s;" />
+          <img src="Youtube.png" alt="Ver Canal" class="img-btn" style="animation-delay: 0.7s; animation-fill-mode: forwards;" />
           <div class="live-badge">🔴 EN VIVO</div>
         </a>
-        <div class="btn-label" style="animation-delay: 1.7s;">Youtube</div>
+        <div class="btn-label" style="animation-delay: 1.7s; animation-fill-mode: forwards;">Youtube</div>
       </div>
     </div>
   </div>
